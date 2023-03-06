@@ -92,6 +92,46 @@
                     , <&macro_release &kp LGUI>
                     ;
             };
+            tri_left: tri_left {
+                label = "tri_left";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&macro_press &kp LEFT>
+                    , <&macro_press &kp LEFT>
+                    , <&macro_press &kp LEFT>
+                    ;
+            };
+            tri_right: tri_right {
+                label = "tri_right";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&macro_press &kp RIGHT>
+                    , <&macro_press &kp RIGHT>
+                    , <&macro_press &kp RIGHT>
+                    ;
+            };
+            tri_up: tri_up {
+                label = "tri_up";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&macro_press &kp UP>
+                    , <&macro_press &kp UP>
+                    , <&macro_press &kp UP>
+                    ;
+            };
+            tri_down: tri_down {
+                label = "tri_down";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&macro_press &kp DOWN>
+                    , <&macro_press &kp DOWN>
+                    , <&macro_press &kp DOWN>
+                    ;
+            };
         };
 
 
@@ -278,8 +318,8 @@
                 };
                 nav_layer {
                         bindings = <
-        &trans          &trans          &trans          &trans          &trans          &trans          &kp PG_UP       &kp HOME        &kp UP          &kp END         &trans          &trans
-        &trans          &trans          &trans          &trans          &trans          &trans          &kp PG_DN       &kp LEFT        &kp DOWN        &kp RIGHT       &trans          &trans
+        &trans          &trans          &trans          &tri_up         &trans          &trans          &kp PG_UP       &kp HOME        &kp UP          &kp END         &trans          &trans
+        &trans          &trans          &tri_left       &tri_down       &tri_right      &trans          &kp PG_DN       &kp LEFT        &kp DOWN        &kp RIGHT       &trans          &trans
         &trans          &trans          &trans          &trans          &trans          &trans          &trans          &kp LC(LEFT)    &trans          &kp LC(RIGHT)   &trans          &trans
                                                         &trans          &trans          &trans          &trans          &trans          &trans
                         >;
