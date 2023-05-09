@@ -97,9 +97,9 @@
                 compatible = "zmk,behavior-macro";
                 #binding-cells = <0>;
                 bindings
-                    = <&macro_press &kp LEFT>
-                    , <&macro_press &kp LEFT>
-                    , <&macro_press &kp LEFT>
+                    = <&macro_tap &kp LEFT>
+                    , <&macro_tap &kp LEFT>
+                    , <&macro_tap &kp LEFT>
                     ;
             };
             tri_right: tri_right {
@@ -107,9 +107,9 @@
                 compatible = "zmk,behavior-macro";
                 #binding-cells = <0>;
                 bindings
-                    = <&macro_press &kp RIGHT>
-                    , <&macro_press &kp RIGHT>
-                    , <&macro_press &kp RIGHT>
+                    = <&macro_tap &kp RIGHT>
+                    , <&macro_tap &kp RIGHT>
+                    , <&macro_tap &kp RIGHT>
                     ;
             };
             tri_up: tri_up {
@@ -117,9 +117,9 @@
                 compatible = "zmk,behavior-macro";
                 #binding-cells = <0>;
                 bindings
-                    = <&macro_press &kp UP>
-                    , <&macro_press &kp UP>
-                    , <&macro_press &kp UP>
+                    = <&macro_tap &kp UP>
+                    , <&macro_tap &kp UP>
+                    , <&macro_tap &kp UP>
                     ;
             };
             tri_down: tri_down {
@@ -127,9 +127,9 @@
                 compatible = "zmk,behavior-macro";
                 #binding-cells = <0>;
                 bindings
-                    = <&macro_press &kp DOWN>
-                    , <&macro_press &kp DOWN>
-                    , <&macro_press &kp DOWN>
+                    = <&macro_tap &kp DOWN>
+                    , <&macro_tap &kp DOWN>
+                    , <&macro_tap &kp DOWN>
                     ;
             };
         };
