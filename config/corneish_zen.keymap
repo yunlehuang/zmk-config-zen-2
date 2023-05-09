@@ -2,58 +2,326 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+#define WIN 0
+#define MAC 1
+#define SYM 2
+#define NAV 3
+#define NAV2 4
+#define NUM 5
+#define NUM2 6
+#define MUS 7
+#define STG 8
+
 / {
   chosen {
     zmk,matrix_transform = &default_transform;
-    //zmk,matrix_transform = &five_column_transform;
+    //zmk,matrix_transform = &five_column_transform;asdf
   };
 };
 
 / {
+        behaviors {
+            hm: homerow_mods {
+                    compatible = "zmk,behavior-hold-tap";
+                    label = "HOMEROW_MODS";
+                    #binding-cells = <2>;
+                    tapping-term-ms = <150>;
+                    quick_tap_ms = <150>;
+                    flavor = "tap-preferred";
+                    global-quick-tap;
+                    bindings = <&kp>, <&kp>;
+            };
+        };
+
+        macros {
+            macro_combo_comment: macro_combo_comment {
+                label = "macro_combo_comment";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings 
+                    = <&macro_press &kp LCTRL>
+                    , <&macro_tap &kp K &kp C>
+                    , <&macro_release &kp LCTRL>
+                    ;
+            };
+            macro_combo_uncomment: macro_combo_uncomment {
+                label = "macro_combo_uncomment";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&macro_press &kp LCTRL>
+                    , <&macro_tap &kp K &kp U>
+                    , <&macro_release &kp LCTRL>
+                    ;
+            };
+            macro_combo_vsc_flip: macro_combo_vsc_flip {
+                label = "macro_combo_vsc_flip";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&macro_press &kp LALT>
+                    , <&macro_press &kp LSHFT>
+                    , <&macro_tap &kp N0>
+                    , <&macro_release &kp LALT>
+                    , <&macro_release &kp LSHFT>
+                    ;
+            };
+            macro_combo_excel_copy_val: macro_combo_excel_copy_val {
+                label = "macro_combo_excel_copy_val";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&macro_tap &kp F2>
+                    , <&macro_press &kp LCTRL>
+                    , <&macro_tap &kp A &kp C>
+                    , <&macro_release &kp LCTRL>
+                    , <&macro_tap &kp ESC>
+                    ;
+            };
+            macro_combo_mac_scr_shot: macro_combo_mac_scr_shot {
+                label = "macro_combo_mac_scr_shot";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&macro_press &kp LCTRL>
+                    , <&macro_press &kp LSHFT>
+                    , <&macro_press &kp LGUI>
+                    , <&macro_tap &kp N4>
+                    , <&macro_release &kp LCTRL>
+                    , <&macro_release &kp LSHFT>
+                    , <&macro_release &kp LGUI>
+                    ;
+            };
+        };
+
+
+        combos {
+            compatible = "zmk,combos";
+            combo_tab {
+                    timeout-ms = <50>;
+                    key-positions = <1 2>;
+                    bindings = <&kp TAB>;
+            };
+            combo_rent {
+                    timeout-ms = <50>;
+                    key-positions = <19 32>;
+                    bindings = <&kp ENTER>;
+            };
+            combo_rbackspace {
+                    timeout-ms = <50>;
+                    key-positions = <19 20>;
+                    bindings = <&kp BACKSPACE>;
+            };
+            combo_lent {
+                    timeout-ms = <50>;
+                    key-positions = <16 27>;
+                    bindings = <&kp ENTER>;
+            };
+            combo_lbackspace {
+                    timeout-ms = <50>;
+                    key-positions = <15 16>;
+                    bindings = <&kp BACKSPACE>;
+            };
+            combo_lspace {
+                    timeout-ms = <50>;
+                    key-positions = <3 16>;
+                    bindings = <&kp SPACE>;
+            };
+            combo_delete {
+                    timeout-ms = <50>;
+                    key-positions = <16 17>;
+                    bindings = <&kp DELETE>;
+            };
+            combo_esc {
+                    timeout-ms = <50>;
+                    key-positions = <5 17>;
+                    bindings = <&kp ESC>;
+            };
+            combo_left {
+                    timeout-ms = <50>;
+                    key-positions = <25 26>;
+                    bindings = <&kp LEFT>;
+            };
+            combo_down {
+                    timeout-ms = <50>;
+                    key-positions = <26 27>;
+                    bindings = <&kp DOWN>;
+            };
+            combo_right {
+                    timeout-ms = <50>;
+                    key-positions = <27 28>;
+                    bindings = <&kp RIGHT>;
+            };
+            combo_up {
+                    timeout-ms = <50>;
+                    key-positions = <14 15>;
+                    bindings = <&kp UP>;
+            };
+            combo_comment {
+                    timeout-ms = <50>;
+                    key-positions = <25 27>;
+                    bindings = <&macro_combo_comment>;
+            };
+            combo_uncomment {
+                    timeout-ms = <50>;
+                    key-positions = <25 28>;
+                    bindings = <&macro_combo_uncomment>;
+            };
+            combo_vsc_flip {
+                    timeout-ms = <50>;
+                    key-positions = <6 30>;
+                    bindings = <&macro_combo_vsc_flip>;
+            };
+            combo_excel_copy_val {
+                    timeout-ms = <50>;
+                    key-positions = <1 27>;
+                    bindings = <&macro_combo_excel_copy_val>;
+            };
+            combo_mac_scr_shot {
+                    timeout-ms = <50>;
+                    key-positions = <5 29>;
+                    bindings = <&macro_combo_mac_scr_shot>;
+            };
+            combo_f1 {
+                    timeout-ms = <50>;
+                    key-positions = <1 13>;
+                    bindings = <&kp F1>;
+            };
+            combo_f2 {
+                    timeout-ms = <50>;
+                    key-positions = <2 14>;
+                    bindings = <&kp F2>;
+            };
+            combo_f3 {
+                    timeout-ms = <50>;
+                    key-positions = <3 15>;
+                    bindings = <&kp F3>;
+            };
+            combo_f4 {
+                    timeout-ms = <50>;
+                    key-positions = <4 16>;
+                    bindings = <&kp F4>;
+            };
+            combo_f5 {
+                    timeout-ms = <50>;
+                    key-positions = <13 25>;
+                    bindings = <&kp F5>;
+            };
+            combo_f6 {
+                    timeout-ms = <50>;
+                    key-positions = <14 26>;
+                    bindings = <&kp F6>;
+            };
+            combo_f7 {
+                    timeout-ms = <50>;
+                    key-positions = <15 27>;
+                    bindings = <&kp F7>;
+            };
+            combo_f8 {
+                    timeout-ms = <50>;
+                    key-positions = <16 28>;
+                    bindings = <&kp F8>;
+            };
+            combo_f9 {
+                    timeout-ms = <50>;
+                    key-positions = <1 25>;
+                    bindings = <&kp F9>;
+            };
+            combo_f10 {
+                    timeout-ms = <50>;
+                    key-positions = <2 26>;
+                    bindings = <&kp F10>;
+            };
+            combo_f11 {
+                    timeout-ms = <50>;
+                    key-positions = <3 27>;
+                    bindings = <&kp F11>;
+            };
+            combo_f12 {
+                    timeout-ms = <50>;
+                    key-positions = <4 28>;
+                    bindings = <&kp F12>;
+            };
+        };
+        
         keymap {
+//      0               1               2               3               4               5        |      6               7               8               9               10              11
+//      12              13              14              15              16              17       |      18              19              20              21              22              23
+//      24              25              26              27              28              29       |      30              31              32              33              34              35
+//                                                      36              37              38       |      39              40              41
+
                 compatible = "zmk,keymap";
 
                 default_layer {
-                        label = "QWERTY";
-// -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
                         bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
-                  &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
+        &kp LGUI        &kp Q           &kp W           &kp E           &kp R           &kp T           &kp Y           &kp U           &kp I           &kp O           &kp P           &mo STG
+        &kp LALT        &kp A           &kp S           &kp D           &kp F           &kp G           &kp H           &kp J           &kp K           &kp L           &lt NUM SEMI    &kp SQT
+        &kp LCTRL       &kp Z           &kp X           &kp C           &kp V           &kp B           &kp N           &kp M           &kp COMMA       &kp DOT         &kp FSLH        &mo MUS
+                                                        &mo NUM2        &mo SYM         &kp LSHIFT      &kp SPACE       &mo NAV         &kp ESC
                         >;
                 };
-                lower_layer {
-                        label = "NUMBER";
-// -----------------------------------------------------------------------------------------
-// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
-                        bindings = <
-   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
-                          	        &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
+	            mac_layer {
+                       bindings = <
+        &kp LCTRL       &kp Q           &kp W           &kp E           &kp R           &kp T           &kp Y           &kp U           &kp I           &kp O           &kp P           &mo STG
+        &kp LALT        &kp A           &kp S           &kp D           &kp F           &kp G           &kp H           &kp J           &kp K           &kp L           &lt NUM SEMI    &kp SQT
+        &kp LGUI        &kp Z           &kp X           &kp C           &kp V           &kp B           &kp N           &kp M           &kp COMMA       &kp DOT         &kp FSLH        &mo MUS
+                                                        &mo NUM2        &mo SYM         &kp LSHIFT      &kp SPACE       &mo NAV         &kp ESC
                         >;
                 };
-
-                raise_layer {
-                        label = "SYMBOL";
-// -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+                sym_layer {
                         bindings = <
-   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp STAR &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC &kp RBRC &kp PIPE &kp TILDE
-                    	     &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
+        &trans          &kp EXCL        &kp AT_SIGN     &kp HASH        &kp DLLR        &kp PRCNT       &kp CARET       &kp AMPS        &kp ASTRK       &kp UNDER       &kp EQUAL       &trans
+        &trans          &kp GRAVE       &kp TILDE       &kp LPAR        &kp RPAR        &kp BSLH        &kp PIPE        &kp LBKT        &kp RBKT        &kp MINUS       &kp PLUS        &trans
+        &trans          &trans          &trans          &kp LT          &kp GT          &trans          &trans          &kp LBRC        &kp RBRC        &trans          &trans          &trans
+                                                        &kp LC(LEFT)    &trans          &kp LC(RIGHT)   &trans          &trans          &trans
+                        >;
+                };
+                nav_layer {
+                        bindings = <
+        &trans          &trans          &trans          &trans          &trans          &trans          &kp PG_UP       &kp HOME        &kp UP          &kp END         &trans          &trans
+        &trans          &trans          &trans          &trans          &trans          &trans          &kp PG_DN       &kp LEFT        &kp DOWN        &kp RIGHT       &trans          &trans
+        &trans          &trans          &trans          &trans          &trans          &trans          &trans          &kp LC(LEFT)    &trans          &kp LC(RIGHT)   &trans          &trans
+                                                        &trans          &trans          &trans          &trans          &trans          &trans
+                        >;
+                };
+                nav2_layer {
+                        bindings = <
+        &trans          &trans          &trans          &trans          &trans          &trans          &kp PG_UP       &kp LG(LEFT)    &kp UP          &kp LG(RIGHT)   &trans          &trans
+        &trans          &trans          &trans          &trans          &trans          &trans          &kp PG_DN       &kp LEFT        &kp DOWN        &kp RIGHT       &trans          &trans
+        &trans          &trans          &trans          &trans          &trans          &trans          &trans          &kp LA(LEFT)    &trans          &kp LA(RIGHT)   &trans          &trans
+                                                        &trans          &trans          &trans          &trans          &trans          &trans
+                        >;
+                };
+                num_layer {
+                        bindings = <
+        &trans          &kp F1          &kp F2          &kp F3          &kp F4          &trans          &kp FSLH        &kp N7          &kp N8          &kp N9          &trans          &trans
+        &trans          &kp F5          &kp F6          &kp F7          &kp F8          &trans          &kp ASTRK       &kp N4          &kp N5          &kp N6          &trans          &trans
+        &trans          &kp F9          &kp F10         &kp F11         &kp F12         &trans          &kp MINUS       &kp N1          &kp N2          &kp N3          &trans          &trans
+                                                        &trans          &trans          &trans          &kp PLUS        &kp N0          &kp DOT
+                        >;
+                };
+                num2_layer {
+                        bindings = <
+        &kp ESC         &kp N1          &kp N2          &kp N3          &kp N0          &trans          &trans        &trans            &trans          &trans          &trans          &trans
+        &trans          &kp N4          &kp N5          &kp N6          &trans          &trans          &trans        &trans            &trans          &trans          &trans          &trans
+        &trans          &kp N7          &kp N8          &kp N9          &trans          &trans          &trans        &trans            &trans          &trans          &trans          &trans
+                                                        &trans          &trans          &trans          &trans        &trans            &trans
+                        >;
+                };
+                mus_layer {
+                        bindings = <
+        &trans          &kp C_BRI_DN    &kp C_BRI_UP    &trans          &trans          &trans          &trans        &trans            &trans          &trans          &to WIN         &to MAC
+        &trans          &trans          &trans          &trans          &trans          &trans          &trans        &kp C_PP          &kp C_PREV      &kp C_NEXT      &trans          &trans
+        &trans          &trans          &trans          &trans          &trans          &trans          &trans        &kp K_MUTE        &kp C_VOL_DN    &kp C_VOL_UP    &trans          &trans
+                                                        &trans          &trans          &trans          &trans        &trans            &trans
+                        >;
+                };
+                stg_layer {
+                        bindings = <
+        &trans          &trans          &trans          &trans          &trans          &trans          &trans        &trans            &trans          &trans          &trans          &trans
+        &bt BT_CLR      &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4    &trans        &trans            &trans          &trans          &trans          &trans
+        &reset          &trans          &trans          &trans          &trans          &trans          &trans        &trans            &trans          &trans          &trans          &trans
+                                                        &trans          &trans          &trans          &trans        &trans            &trans
                         >;
                 };
         };
