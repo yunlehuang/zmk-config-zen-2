@@ -303,7 +303,7 @@
         &kp LGUI        &kp Q           &kp W           &kp E           &kp R           &kp T           &kp Y           &kp U           &kp I           &kp O           &kp P           &mo STG
         &kp LALT        &kp A           &kp S           &kp D           &kp F           &kp G           &kp H           &kp J           &kp K           &kp L           &lt NUM SEMI    &kp SQT
         &kp LCTRL       &kp Z           &kp X           &kp C           &kp V           &kp B           &kp N           &kp M           &kp COMMA       &kp DOT         &kp FSLH        &mo MUS
-                                                        &mo NUM2        &mo SYM         &kp LSHIFT      &kp SPACE       &mo NAV         &kp NAV2
+                                                        &mo NUM2        &mo SYM         &kp LSHIFT      &kp SPACE       &mo NAV         &mo NAV2
                         >;
                 };
 	            mac_layer {
@@ -311,7 +311,7 @@
         &kp LCTRL       &kp Q           &kp W           &kp E           &kp R           &kp T           &kp Y           &kp U           &kp I           &kp O           &kp P           &mo STG
         &kp LALT        &kp A           &kp S           &kp D           &kp F           &kp G           &kp H           &kp J           &kp K           &kp L           &lt NUM SEMI    &kp SQT
         &kp LGUI        &kp Z           &kp X           &kp C           &kp V           &kp B           &kp N           &kp M           &kp COMMA       &kp DOT         &kp FSLH        &mo MUS
-                                                        &mo NUM2        &mo SYM         &kp LSHIFT      &kp SPACE       &mo NAV         &kp NAV2
+                                                        &mo NUM2        &mo SYM         &kp LSHIFT      &kp SPACE       &mo NAV         &mo NAV2
                         >;
                 };
                 sym_layer {
