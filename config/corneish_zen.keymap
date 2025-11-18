@@ -332,8 +332,8 @@
                 };
                 nav2_layer {
                         bindings = <
-        &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &msc SCRL_UP    &trans          &trans          &trans
-        &trans          &trans          &trans          &trans          &trans          &trans          &trans          &mkp LCLK       &mkp MCLK       &mkp RCLK       &trans          &trans
+        &trans          &trans          &trans          &mmv MOVE_UP    &trans          &trans          &trans          &trans          &msc SCRL_UP    &trans          &trans          &trans
+        &trans          &trans          &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT &trans          &trans          &mkp LCLK       &mkp MCLK       &mkp RCLK       &trans          &trans
         &trans          &trans          &trans          &trans          &trans          &trans          &trans          &mkp MB4        &msc SCRL_DOWN  &mkp MB5        &trans          &trans
                                                         &trans          &trans          &trans          &trans          &trans          &trans
                         >;
@@ -356,8 +356,8 @@
                 };
                 mus_layer {
                         bindings = <
-        &trans          &trans          &trans          &mmv MOVE_UP    &trans          &trans          &trans        &trans            &trans          &trans          &to WIN         &to MAC
-        &trans          &trans          &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT &trans          &trans        &kp C_PP          &kp C_PREV      &kp C_NEXT      &trans          &trans
+        &trans          &trans          &trans          &trans          &trans          &trans          &trans        &trans            &trans          &trans          &to WIN         &to MAC
+        &trans          &trans          &trans          &trans          &trans          &trans          &trans        &kp C_PP          &kp C_PREV      &kp C_NEXT      &trans          &trans
         &trans          &trans          &trans          &trans          &trans          &trans          &trans        &kp K_MUTE        &kp C_VOL_DN    &kp C_VOL_UP    &trans          &trans
                                                         &trans          &trans          &trans          &trans        &trans            &trans
                         >;
